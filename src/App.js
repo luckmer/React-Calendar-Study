@@ -1,10 +1,16 @@
+import { Switch, Route, useLocation } from "react-router-dom";
+import { Routes } from "./routes/Index";
 
-function App() {
-  return (
-    <div>
+const App = () => {
+    const location = useLocation();
 
-    </div>
-  );
-}
+    return (
+        <Switch location={location}>
+            {Routes.map(({ path, Component }) => (
+                <Route key={path} exact path={path} component={Component} />
+            ))}
+        </Switch>
+    );
+};
 
 export default App;
