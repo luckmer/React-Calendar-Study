@@ -1,7 +1,10 @@
 # React-Calendar-Study
 
 
+The main reason for creating the calendar was a personal challenge. The data is filtered based on the current month.
+added , deleted tasks are filtered based on the day, month and year in which they were created  
 
+#
 
 ![Main page](https://i.imgur.com/v73bFnC.png)
 ![Filtered By month](https://i.imgur.com/aFbh2E2.png)
