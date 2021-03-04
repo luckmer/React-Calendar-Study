@@ -1,11 +1,12 @@
-import React from 'react'
+import { Article } from "../styles/views/ControlPanel.Style";
+import { MapDays } from "../exports/Index";
 
 function ControlPanel() {
     return (
-        <div>
-            
-        </div>
-    )
+        <Article>
+            <MapDays />
+        </Article>
+    );
 }
 
-export default ControlPanel
+export default ControlPanel;
