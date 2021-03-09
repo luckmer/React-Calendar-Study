@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 import {
-    Days,
     Cards,
     Planner,
     CardPlanner,
@@ -24,7 +23,6 @@ const MapDays = () => {
     if (state) {
         return (
             <div>
-                <Days></Days>
                 <Cards>
                     {state.DaysForCurrentMonth.map(({ id, day, dayName }) => (
                         <MapData
@@ -99,7 +97,7 @@ const MapData = ({ id, day, dayName }) => {
     }, [dispatch, User.newContent, FakeYear, FakeMonth]);
 
     return (
-        <Planner key={id - 1} id={id - 1} onClick={() => SetDate(day - 1)}>
+        <Planner key={id - 1} id={id - 1} onClick={() => SetDate(day - 1)} >
             <CardPlanner>
                 <CurrentData check={open === true}>
                     {User.FilterResult.map((item) => {
