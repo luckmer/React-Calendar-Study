@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { stateData, setDataForCurrentDayData } from "../reducers/DataSlice";
-import { Button, Form } from "../styles/views/CreateNewData.Style";
+import { Button, Form, Article } from "../styles/views/CreateNewData.Style";
 import { useSelector, useDispatch } from "react-redux";
 import { Userdata } from "../reducers/ToDoSlice";
 import { AddTodo } from "../reducers/ToDoSlice";
@@ -45,13 +45,15 @@ function CreateNewData({ setOpen, open }) {
         }
     };
     return (
-        <div>
-            <Form onSubmit={handleSubmit}>
-                {state ? state : ""}
-                <input type='text' name='text' onChange={handleChange} />
-                <Button type='submit'>Submit</Button>
+        <Article>
+            <Form onSubmit={handleSubmit} > {state ? state : ""}
+                <input type='text'
+                    name='text'
+                    onChange={handleChange}
+                /> <Button type='submit' > Submit </Button>
             </Form>
-        </div>
+            <Button onClick={() => setOpen(!open)} > X </Button>
+        </Article>
     );
 }
 
