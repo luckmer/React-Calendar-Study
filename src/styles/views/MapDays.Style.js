@@ -69,7 +69,11 @@ export const UpdateColor = styled.div`
   padding: 15px;
   margin-bottom: 5px;
   padi-bottom: 100px;
-
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   background: ${({ ColorType }) => (ColorType ? ColorType : "#F00049")};
 `;
 
