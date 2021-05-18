@@ -44,13 +44,11 @@ const Data = () => {
   useEffect(() => {
     let DataS = User.newContent;
 
-    if (FakeYear) {
+    if (FakeYear)
       DataS = DataS.filter((item) => parseFloat(item.year) === FakeYear);
-    }
 
-    if (FakeMonth) {
+    if (FakeMonth)
       DataS = DataS.filter((item) => parseFloat(item.month) === FakeMonth);
-    }
 
     dispatch(FilterUpdate(DataS));
   }, [dispatch, User.newContent, FakeYear, FakeMonth]);
