@@ -5,7 +5,11 @@ import { DataControl } from "./DataControl";
 export const UpdateButtonStartData = (state, dispatch) => {
   useEffect(() => {
     if (state.todayMonth) {
-      const { firstDay, daysInMonth, Month, todayFull } = DataControl(state);
+      const { firstDay, daysInMonth, Month, todayFull } = DataControl(
+        state.todayMonth,
+        state.todayYear,
+        state.todayDay
+      );
 
       dispatch(
         UpdateData({
