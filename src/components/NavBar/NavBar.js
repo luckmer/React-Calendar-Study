@@ -6,6 +6,7 @@ import P from "./P";
 
 function NavBar() {
   const state = useSelector((state) => state.data);
+
   return (
     <Article>
       <HeaderBox>
