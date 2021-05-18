@@ -6,12 +6,8 @@ function Button(props) {
   const state = useSelector((state) => state.data);
   const toggleMonths = Toggle(state);
 
-  const handleClick = (id) => {
-    toggleMonths(id);
-  };
-
   return (
-    <button onClick={() => handleClick(props.type)}>{props.children}</button>
+    <button onClick={() => toggleMonths(props.type)}>{props.children}</button>
   );
 }
 
