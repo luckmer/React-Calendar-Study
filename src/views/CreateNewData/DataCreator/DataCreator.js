@@ -1,12 +1,12 @@
 import { useState } from "react";
-import {
-  stateData,
-  setDataForCurrentDayData,
-} from "../../../reducers/DataSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Userdata } from "../../../reducers/ToDoSlice";
 import { AddTodo } from "../../../reducers/ToDoSlice";
 import { Data } from "./Data";
+import {
+  stateData,
+  setDataForCurrentDayData,
+} from "../../../reducers/DataSlice";
 
 function DataCreator(setOpen, open) {
   const [filter, setFilter] = useState({ text: "" });
