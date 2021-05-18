@@ -16,9 +16,8 @@ function DataCreator(setOpen, open) {
   const data = useSelector(Userdata);
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFilter({ ...filter, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

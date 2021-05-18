@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { UpdateData } from "../../reducers/DataSlice";
-import { Data } from "./Data";
+import { Data } from "./Data/Data";
 
 export const SetStartData = (state, dispatch) => {
   useEffect(() => {

@@ -57,7 +57,7 @@ export const MapData = ({ id, day, dayName }) => {
             year === FakeYear
           }
         >
-          <UpdateP onClick={() => setOpen(!open)}>
+          <UpdateP onClick={() => setOpen(!open)} id="block">
             {day - 1} {dayName}
           </UpdateP>
         </CustomDayNumber>
