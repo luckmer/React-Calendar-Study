@@ -13,6 +13,7 @@ import {
 
 export const MapData = ({ id, day, dayName }) => {
   let { todayMonth, year } = CurrentDate();
+
   const { NoteDragOver, OnDropContainer, NoteDragStart } = Drag();
 
   const {
@@ -27,6 +28,7 @@ export const MapData = ({ id, day, dayName }) => {
     open,
     setOpen,
   } = Data();
+
   const result = TestId.includes(id - 1);
 
   return (
