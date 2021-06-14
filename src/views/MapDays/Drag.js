@@ -3,20 +3,22 @@ import { updateArray } from "../../reducers/ToDoSlice";
 
 const Drag = () => {
   const dispatch = useDispatch();
-
   const NoteDragOver = (e) => e.preventDefault();
 
   const OnDropContainer = (e) => {
-    if (
-      (!e.target.classList.contains("sc-kEjbxe") &&
-        !e.target.classList.contains("kdczwX") &&
-        e.target.id !== "block") ||
-      (e.target.classList.value !== "" && e.target.id !== "block")
-    ) {
-      const id = e.dataTransfer.getData("id");
-      const target = e.target.id;
+    const E = e.target.classList;
+    const target = e.target;
+    const InValid = ["kdczwX", "sc-kEjbxe", "sc-iqAclL", "sc-jrsJWt", "kjWaVd"];
 
-      dispatch(updateArray({ id, target }));
+    const Block = InValid.includes(E[0]) || InValid.includes(E[1]);
+    const test = Number(target.id) !== -99;
+
+    if (!Block || (!Block && target.id !== "block")) {
+      if (test && E.value !== "") {
+        const id = e.dataTransfer.getData("id");
+        const target = e.target.id;
+        dispatch(updateArray({ id, target }));
+      }
     }
   };
 

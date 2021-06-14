@@ -9,15 +9,15 @@ export function ColorUpdate(
   id,
   NoteDragStart
 ) {
-  return result && TestMonth && TestYear && item.id === id - 1 ? (
+  return result && TestMonth && TestYear && item.id === id ? (
     <UpdateColor
       key={item._id}
       ColorType={item.colorType}
       draggable
-      id={id - 1}
+      id={id}
       onDragStart={(e) => NoteDragStart(e, item._id)}
     >
-      <Link to={`/${item._id}?proxy=${id - 1}`} id="block">
+      <Link to={`/${item._id}?proxy=${id}`} id="block">
         <p id="block">- {item.filter.text}</p>
         <span id="block">{item.description ? "✓" : ""}</span>
       </Link>

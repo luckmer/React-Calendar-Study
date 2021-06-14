@@ -2,6 +2,7 @@ import { useState } from "react";
 import { UserData } from "../../reducers/DataSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { FilterUpdate } from "../../reducers/ToDoSlice";
+import DayCreator from "./DayCreator";
 import { useEffect } from "react";
 
 const Data = () => {
@@ -11,34 +12,31 @@ const Data = () => {
   const User = useSelector((state) => state.array);
   const dispatch = useDispatch();
 
-  const FakeMonth = state.todayMonth;
-  const FakeYear = state.todayYear;
+  const FakeMonth = new Date(state.date).getMonth() + 1;
+  const FakeYear = new Date(state.date).getFullYear();
 
   const TestId = User.FilterResult.map((item) => item.id);
 
   const TestMonth = User.FilterResult.map(
-    (item) => parseFloat(item.month) === FakeMonth
+    ({ month }) => parseFloat(month) === FakeMonth
   );
 
   const TestYear = User.FilterResult.map(
-    (item) => parseFloat(item.year) === FakeYear
+    ({ year }) => parseFloat(year) === FakeYear
   );
 
   const SetDate = (Day, id) => {
-    if (Day !== 0) {
-      const day = `${Day <= 9 ? "0" + Day : Day}`;
-      const month = `${FakeMonth <= 9 ? "0" + FakeMonth : FakeMonth}`;
-      const FullDate = `${FakeYear}-${month}-${day}`;
-      dispatch(
-        UserData({
-          data: FullDate,
-          ID: id - 1,
-          month: month,
-          day: day,
-          FakeYear: FakeYear,
-        })
-      );
-    }
+    const { FullDate, month, day } = DayCreator(Day, FakeMonth, FakeYear);
+
+    dispatch(
+      UserData({
+        data: FullDate,
+        ID: id - 1,
+        month: month,
+        day: day,
+        FakeYear: FakeYear,
+      })
+    );
   };
 
   useEffect(() => {
