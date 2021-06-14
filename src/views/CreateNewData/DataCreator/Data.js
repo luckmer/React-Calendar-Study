@@ -1,16 +1,15 @@
 import { nanoid } from "@reduxjs/toolkit";
 
-export const Data = (setDataForCurrentDay, filter) => {
-  const {
-    currentUserClickedDay,
-    currentUserClickedMonth,
-    currentUserClickedYear,
-    ID,
-  } = setDataForCurrentDay;
-
+export const Data = (
+  currentUserClickedDay,
+  currentUserClickedMonth,
+  currentUserClickedYear,
+  ID,
+  filter
+) => {
   const newData = {
     filter,
-    id: ID,
+    id: ID + 1,
     description: "",
     colorType: "#f00049",
     day: currentUserClickedDay,
@@ -18,5 +17,6 @@ export const Data = (setDataForCurrentDay, filter) => {
     year: currentUserClickedYear,
     _id: nanoid(),
   };
+
   return newData;
 };

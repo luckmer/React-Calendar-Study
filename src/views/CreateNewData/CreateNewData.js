@@ -1,5 +1,10 @@
-import { Button, Form, Article } from "../../styles/views/CreateNewData.Style";
 import DataCreator from "./DataCreator/DataCreator";
+import {
+  Button,
+  Form,
+  Article,
+  ButtonPanel,
+} from "../../styles/views/CreateNewData.Style";
 
 const CreateNewData = ({ setOpen, open }) => {
   const { handleSubmit, state, handleChange } = DataCreator(setOpen, open);
@@ -9,9 +14,11 @@ const CreateNewData = ({ setOpen, open }) => {
       <Form onSubmit={handleSubmit}>
         {state ? state : ""}
         <input type="text" name="text" onChange={handleChange} />{" "}
-        <Button type="submit"> Submit </Button>
+        <ButtonPanel>
+          <Button type="submit"> Submit </Button>
+          <Button onClick={() => setOpen(!open)}> X </Button>
+        </ButtonPanel>
       </Form>
-      <Button onClick={() => setOpen(!open)}> X </Button>
     </Article>
   );
 };
