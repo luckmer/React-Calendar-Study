@@ -14,7 +14,8 @@ function NavBar() {
           <Button type="Minus">-</Button>
           <P type="Reset">
             <Link to="/">
-              {state.todayMonthName} {state.todayFullDate}
+              {new Date(state.date).getMonth() + 1} /{" "}
+              {new Date(state.date).getFullYear()}
             </Link>
           </P>
           <Button type="Add">+</Button>

@@ -1,30 +1,25 @@
-import { UpdateMonthYear } from "../../reducers/DataSlice";
+import { IncreaseDate, Reset } from "../../reducers/DataSlice";
 import { useDispatch } from "react-redux";
-import { CurrentDate } from "../../exports/Index";
 
 function Toggle(state) {
   const dispatch = useDispatch();
-  let { todayMonth, year } = CurrentDate();
 
   const toggleMonths = (whichWay) => {
+    let todayDate = state.date;
+    let NewDate = new Date(todayDate);
+
     if (whichWay === "Add") {
-      let todayMonth = state.todayMonth + 1;
-
-      dispatch(
-        UpdateMonthYear({
-          month: todayMonth,
-          year: state.todayYear,
-        })
-      );
+      NewDate.setMonth(NewDate.getMonth() + 1);
+      dispatch(IncreaseDate(NewDate));
     }
-    if (whichWay === "Minus") {
-      let todayMonth = state.todayMonth - 1;
 
-      dispatch(UpdateMonthYear({ month: todayMonth, year: state.todayYear }));
+    if (whichWay === "Minus") {
+      NewDate.setMonth(NewDate.getMonth() - 1);
+      dispatch(IncreaseDate(NewDate));
     }
 
     if (whichWay === "Reset") {
-      dispatch(UpdateMonthYear({ month: todayMonth, year: year }));
+      dispatch(Reset(new Date()));
     }
   };
   return toggleMonths;
