@@ -2,24 +2,11 @@ import styled from "styled-components";
 
 export const Cards = styled.div`
   padding-top: 60px;
-  display: flex;
-  flex-flow: row wrap;
-
-  @media screen and (min-width: 1950px) {
-    max-width: 2400px;
-    margin: auto;
-    justify-content: flex-start;
-  }
-  @media screen and (max-width: 1950px) {
-    max-width: 1800px;
-    margin: auto;
-    align-items: center;
-    justify-content: flex-start;
-  }
+  width: 100%;
 `;
 
 const LessCode = styled.div`
-  width: 13vw;
+  width: 100%;
   height: 17vh;
   border: 1px solid #444750;
   box-sizing: border-box;
@@ -29,6 +16,7 @@ const LessCode = styled.div`
     color: #fff;
   }
   transition: 0.3s;
+  background: ${({ Style }) => (Style === -99 ? "#1e2028" : "")};
 `;
 
 export const Planner = styled(LessCode)``;
@@ -99,7 +87,6 @@ export const UpdateP = styled.p`
 
 export const CurrentData = styled.div`
   overflow-y: scroll;
-  padding-top: 20px;
   opacity: ${({ check }) => (check ? "0" : "1")};
   ::-webkit-scrollbar {
     width: 0px;

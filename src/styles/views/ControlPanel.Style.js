@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
 export const Article = styled.article`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    section {
-        &&:nth-child(1) {
-        }
-        &&:nth-child(0) {
-            width: 100%;
-        }
-    }
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: end;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-track {
+  }
+
+  ::-webkit-scrollbar-thumb {
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+  }
 `;
