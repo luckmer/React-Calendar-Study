@@ -1,68 +1,55 @@
-import { DataControl } from "../views/Calendar/DataControl";
+import DayCreator from "../views/MapDays/DayCreator";
 
-describe("DataControl", () => {
+describe("DayCreator", () => {
   test("expect data", () => {
-    const Month = 5;
-    const Year = 2021;
-    const DateS = 17;
+    const Day = 2;
+    const FakeMonth = 5;
+    const FakeYear = 2021;
 
-    expect(DataControl(Month, Year, DateS)).toEqual({
-      Month: 5,
-      daysInMonth: 31,
-      firstDay: 2,
-      todayFull: "17.05.2021",
+    expect(DayCreator(Day, FakeMonth, FakeYear)).toEqual({
+      FullDate: "2021-05-3",
+      day: "03",
+      month: "05",
     });
   });
-
   test("expect a new data type", () => {
-    const Month = 7;
-    const Year = 2021;
-    const DateS = 3;
-
-    expect(DataControl(Month, Year, DateS)).toEqual({
-      Month: 7,
-      daysInMonth: 31,
-      firstDay: 0,
-      todayFull: "03.07.2021",
+    const Day = 7;
+    const FakeYear = 2021;
+    const FakeMonth = 3;
+    expect(DayCreator(Day, FakeYear, FakeMonth)).toEqual({
+      FullDate: "3-2021-8",
+      day: "08",
+      month: "2021",
     });
   });
-
   test("expect a new year", () => {
-    const Month = 3;
-    const Year = 2020;
-    const DateS = 20;
-
-    expect(DataControl(Month, Year, DateS)).toEqual({
-      Month: 3,
-      daysInMonth: 31,
-      firstDay: 3,
-      todayFull: "20.03.2020",
+    const Day = 3;
+    const FakeYear = 2020;
+    const FakeMonth = 20;
+    expect(DayCreator(Day, FakeYear, FakeMonth)).toEqual({
+      FullDate: "20-2020-4",
+      day: "04",
+      month: "2020",
     });
   });
-
   test("expect a new day type I", () => {
-    const Month = 3;
-    const Year = 2020;
-    const DateS = 12;
-
-    expect(DataControl(Month, Year, DateS)).toEqual({
-      Month: 3,
-      daysInMonth: 31,
-      firstDay: 3,
-      todayFull: "12.03.2020",
+    const Day = 3;
+    const FakeYear = 2020;
+    const FakeMonth = 12;
+    expect(DayCreator(Day, FakeYear, FakeMonth)).toEqual({
+      FullDate: "12-2020-4",
+      day: "04",
+      month: "2020",
     });
   });
-
   test("expect a new day type II", () => {
-    const Month = 3;
-    const Year = 2020;
-    const DateS = 1;
-
-    expect(DataControl(Month, Year, DateS)).toEqual({
-      Month: 3,
-      daysInMonth: 31,
-      firstDay: 3,
-      todayFull: "01.03.2020",
+    const Day = 3;
+    const FakeYear = 2020;
+    const FakeMonth = 1;
+    expect(DayCreator(Day, FakeYear, FakeMonth)).toEqual({
+      FullDate: "1-2020-4",
+      day: "04",
+      month: "2020",
     });
   });
 });
