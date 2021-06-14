@@ -18,7 +18,6 @@ const ToDoSlice = createSlice({
 
     updateArray: (state, action) => {
       const { id, target } = action.payload;
-      console.log(id, target);
       let ApiControl = state.newContent.find(({ _id }) => _id === id);
 
       if (ApiControl) {
