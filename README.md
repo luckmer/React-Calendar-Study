@@ -1,6 +1,6 @@
 # React-Calendar-Study 🎡🎨
 
-- [ WEBSITE ](https://60c76095ebfb71a50b046d23--react-calendar-luckmer.netlify.app/)🎃
+- [ WEBSITE ](https://infallible-sammet-8cce71.netlify.app/)🎃
 
 
 The main reason for creating the calendar was a personal challenge. The data is filtered based on the current month.
