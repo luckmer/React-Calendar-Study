@@ -11,10 +11,9 @@ import {
   UpdateP,
 } from "../../styles/views/MapDays.Style";
 
-export const MapData = ({ id, day, dayName }) => {
+export const MapData = ({ id, day, dayName, state }) => {
   let { todayMonth, year } = CurrentDate();
-
-  const { NoteDragOver, OnDropContainer, NoteDragStart } = Drag();
+  const { NoteDragOver, OnDropContainer, NoteDragStart } = Drag(state);
 
   const {
     TestId,
@@ -22,25 +21,26 @@ export const MapData = ({ id, day, dayName }) => {
     TestYear,
     SetDate,
     User,
-    state,
     FakeMonth,
     FakeYear,
     open,
     setOpen,
+    Day,
   } = Data();
 
-  const result = TestId.includes(id - 1);
+  const result = TestId.includes(id);
 
   return (
     <Planner
-      key={id - 1}
-      id={id - 1}
+      Style={id}
+      key={id}
+      id={id}
       onClick={() => SetDate(day - 1, id)}
       onDragOver={(e) => NoteDragOver(e)}
       onDrop={(e) => OnDropContainer(e)}
     >
-      <CardPlanner id={id - 1} onDrop={(e) => OnDropContainer(e)}>
-        <CurrentData check={open === true} id={id - 1}>
+      <CardPlanner id={id} onDrop={(e) => OnDropContainer(e)}>
+        <CurrentData check={open === true} id={id}>
           {User.FilterResult.map((item) =>
             ColorUpdate(result, TestMonth, TestYear, item, id, NoteDragStart)
           )}
@@ -52,14 +52,16 @@ export const MapData = ({ id, day, dayName }) => {
         )}
         <CustomDayNumber
           check={
-            day - 1 === state.todayDay &&
-            todayMonth === FakeMonth &&
-            year === FakeYear
+            day === Day && todayMonth === FakeMonth + 1 && year === FakeYear
           }
         >
-          <UpdateP onClick={() => setOpen(!open)} id="block">
-            {day - 1} {dayName}
-          </UpdateP>
+          {dayName === -99 ? (
+            ""
+          ) : (
+            <UpdateP onClick={() => setOpen(!open)} id={id}>
+              {dayName}
+            </UpdateP>
+          )}
         </CustomDayNumber>
       </CardPlanner>
     </Planner>
